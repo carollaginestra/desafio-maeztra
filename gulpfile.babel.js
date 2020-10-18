@@ -14,9 +14,10 @@ import pug from 'gulp-pug';
 function browser_sync() {
   return browserSync.init({
     server: {
-      baseDir: '.'
-    }
-    });
+      baseDir: 'layout/dist',
+    },
+    port: 8888
+  });
 }
 
 function reload(done) {
@@ -60,8 +61,7 @@ export function html() {
   .pipe(pug({
     pretty: true
   }))
-  .pipe(dest('layout/dist/html'))
-  .pipe( browserSync.stream() );
+  .pipe(dest('layout/dist'))
 };
 
 function copy() {
@@ -86,10 +86,10 @@ function imgmin() {
 
 function watch_files() {
   watch('./layout/src/sass/**/*.scss', series(css, reload));
-  watch('./layout/src/js/*.js', series(js, reload));
-  watch('./layout/src/images/*.*', series(imgmin, reload));
-  src('./layout/dist/js/' + 'script.min.js')
-    .pipe( notify({ message: 'Gulp is Watching' }) );
+  watch('./layout/src/js/**/*.js', series(js, reload));
+  watch('./layout/src/images/**/*.*', series(imgmin, reload));
+  watch('./layout/src/pug/**/*.pug', series(html));
+  watch("./layout/dist/*.html", reload);
 }
     
 exports.js = js;

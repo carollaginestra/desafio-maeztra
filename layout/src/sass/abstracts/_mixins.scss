@@ -1,0 +1,11 @@
+/* Function */
+@mixin breakpoint($name) {
+    @if map-has-key($breakpoints, $name) {
+        @media #{inspect(map-get($breakpoints, $name))} {
+            @content;
+        }
+    }
+    @else {
+        @warn "Não foi possível encontrar um breakpoint com o nome `#{$name}`.";
+    }
+}
