@@ -17,35 +17,148 @@ html(xmlns="http://www.w3.org/1999/xhtml", xmlns:xlink="http://www.w3.org/1999/x
     meta(property="og:url", content="#")
     meta(name="author", content="Carolina Laginestra")
 
-    link(rel='shortcut icon', href='./favicon.ico')
+    link(rel='shortcut icon', href='favicon.ico')
     link(rel="canonical", href="#")
 
     title E-commerce home - Maeztra
 
     link(href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap", rel="stylesheet")
-    link(rel="stylesheet", href="dist/css/style.min.css")
+    link(rel="stylesheet", href="/css/main.min.css")
 
   body
   
     .bf-wrapper
-      header
+      header.header
+        .pitchbar
+          .container
+            .pitchbar__list
+              a(href="#!", title="Promoções").pitchbar__text Acompanhe as melhores promoções disponíveis aqui na Maeztra.
+        .header__top
+          .container
+            .header__top-content
+              .menu.menu-mobile
+                include ../images/header/menu.svg
+              h1.logo
+                a(href="/", title="Maeztra")
+                  img(src="/images/header/logo.png" alt="Maeztra")
+              form.search
+                input(type="search", placeholder="O que você busca?", class="search__field")
+                button(type="submit", class="primary-button search__button") Buscar
 
+              .search-mobile
+
+              .account 
+                .account__title Minha conta
+
+              .wishlist
+                .wishlist__title Lista de desejos
+
+              .cart
+                .cart__title Meu carrinho
+
+        .header__bottom
+          nav.navbar
+            .container
+              mixin nav(link, title)
+                li.navbar__item
+                  a(href=link, title=title, class!=attributes.class)= title
+              ul.navbar__list
+                +nav('#!', 'Novidades')(class="navbar__link navbar-highlight")
+                +nav('#!', 'Vestidos')(class="navbar__link")
+                +nav('#!', 'Roupas')(class="navbar__link")
+                +nav('#!', 'Sapatos')(class="navbar__link")
+                +nav('#!', 'Lingerie')(class="navbar__link")
+                +nav('#!', 'Acessórios')(class="navbar__link")
+                +nav('#!', 'Outlet')(class="navbar__link navbar-uppercase")
 
       main
         section
-          .banner.banner-slider
-            .box-banner
-              a(href="", title="Primeiro banner")
-                img(src="/images/home/banner-desktop.jpg" alt="")
-            .box-banner
-              a(href="", title="Primeiro banner")
-                img(src="/images/home/banner-mobile.jpg", alt="")
+          .banner
+            .banner-desktop.banner-slider
+              mixin bannerDesktop(...images)
+                each image in images
+                  .box-banner
+                    a(href="", title="Primeiro banner")
+                      img.banner__image(src="/images/home/banner-desktop.jpg" alt="Promoções de outono")
+              +bannerDesktop(1, 2, 3, 4, 5)
 
+            .banner-mobile.banner-slider
+              mixin bannerMobile(...images)
+                each image in images
+                  .box-banner
+                    a(href="", title="Primeiro banner")
+                      img.banner__image(src="/images/home/banner-mobile.jpg" alt="Promoções de outono")
+              +bannerMobile(1, 2, 3, 4, 5)
+
+        section
+          .container
+            .benefits
+              .benefits__title Por que comprar na Maeztra?
+              .benefits__list
+                mixin benefits(icon, iconTitle, title, description)
+                  .benefits__list-item
+                    img(src=icon alt=iconTitle class!=attributes.class)
+                    .benefits__content
+                      .benefits__name=title
+                      .benefits__description=description
+                +benefits('/images/home/icon-world.png', 'Produtos importados', 'Produtos importados', 'Produto de Alta Qualidade')(class="benefits__icon")
+                +benefits('/images/home/icon-store.png', 'Estoque no Brazil', 'Estoque no Brazil', 'Produtos mais perto de você!')(class="benefits__icon")
+                +benefits('/images/home/icon-dev.png', 'Trocas Garantidas', 'Trocas Garantidas', 'Trocas em até 48 horas, vejas as regras')(class="benefits__icon")
+                +benefits('/images/home/icon-sale.png', 'Ganhe 5% off', 'Ganhe 5% off', 'Pagando à vista no Cartão')(class="benefits__icon")
+                +benefits('/images/home/icon-truck.png', 'Frete Grátis', 'Frete Grátis', 'Em compras acima de R$ 499,00')(class="benefits__icon")
+
+        section
+          .container
+            .brands
+              h2.brands__title Marcas parceiras
+              .brands__list
+                mixin brands(img, title, link)
+                  .box-banner
+                    a(href=link, title=title)
+                      img.brands__image(src=img alt=title)
+                +brands('/images/home/parceiro-comma.jpg', 'Comma', '#!')
+                +brands('/images/home/parceiro-melissa.jpg', 'Melissa', '#!')
+                +brands('/images/home/parceiro-forever21.jpg', 'Forever21', '#!')
+                +brands('/images/home/parceiro-zara.jpg', 'Zara', '#!')
+                +brands('/images/home/parceiro-ann-taylor.jpg', 'Ann Taylor', '#!')
+
+        section
+          .container
+            .shelf
+              h2.shelf__title As mais pedidas
+              .shef__list
+                .shelf__item
+                  img.shelf__image(src="/images/home/produto-01.jpg")
+                  ul.shelf__colors
+                    li 
+
+
+                //- .shelf__item
+                //-   img(src="/images/home/produto-02.jpg")
+
+        section
+          .container
+            .collection
+              .collection__content
+                h3.collection__title Lorem ipsum
+                p.collection__text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum mauris posuere fusce proin mattis. Hendrerit cras ut nunc enim dictum. Mattis proin ut quis donec sed eget nulla. Vel mi ut mauris integer. Nibh sagittis in lobortis sed cursus condimentum velit pharetra. Amet luctus ut vulputate scelerisque .
+              
+              .collection__banner.collection__banner-desktop
+                .box-banner
+                  a(href="")
+                    img.collection__image(src="/images/home/banner-02-desktop.jpg")
+              
+              .collection__banner.collection__banner-mobile
+                .box-banner
+                  a(href="")
+                    img.collection__image(src="/images/home/banner-02-mobile.jpg")
 
 
       footer
 
       .newsletter
 
-    script.
+  script(src="https://code.jquery.com/jquery-3.5.1.min.js", integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=", crossorigin="anonymous")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js")
+  script(src='/js/all.js')
 

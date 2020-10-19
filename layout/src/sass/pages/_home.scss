@@ -1,0 +1,271 @@
+.banner {
+  margin-bottom: 12px;
+
+    .box-banner {
+      .banner__image {
+        height: auto;
+        width: 100%;
+      }
+    }
+
+  &-desktop {
+    display: none;
+
+    @include breakpoint('small-and-up') {
+      display: block;
+    }
+  }
+
+  &-mobile {
+    @include breakpoint('small-and-up') {
+      display: none;
+    }
+  }
+
+  &-mobile, &-desktop {
+    .slick-dots {
+      bottom: 16px;
+
+      li {
+        &:after {
+          @include breakpoint('extra-small-and-up') {
+            @include size(rem(16));
+          }
+        }
+      }
+    }
+
+    .slick-prev {
+      left: 28px;
+
+      @include breakpoint('extra-small-and-up') {
+        left: 9%;
+      }
+    }
+
+    .slick-next {
+      right: 28px;
+	
+      @include breakpoint('extra-small-and-up') {
+        right: 9%;
+      }
+    }
+
+    &:not(.slick-initialized) {
+      .box-banner:nth-child(n+2) {
+        display: none;
+      }
+    }
+  }
+}
+
+.benefits {
+  margin-bottom: 20px;
+
+  @include breakpoint('small-and-up') {
+    margin-bottom: 37px;
+  }
+
+  &__list {
+    margin: 0 -16px 0 10px;
+
+    @include breakpoint('small-and-up') {
+      margin: 0 -8px;
+    }
+
+    &:not(.slick-initialized) {
+      display: flex;
+    }
+  
+    &.slick-initialized {
+      .slick-slide {
+        display: flex;
+  
+        @include breakpoint('extra-small-and-down') {
+          max-width: 298px;
+        }
+      }
+    }
+    
+    .slick-list {
+      padding: 0 8.5% 0 0;
+  
+      @include breakpoint('extra-small-and-up') {
+        padding: 0
+      }
+    }
+
+    &-item {
+      align-items: center;
+      background: {
+        color: $c-gray03;
+      }
+      border-radius: 4px;
+      display: flex;
+      flex-basis: 0;
+      flex: 1 1 0px;
+      margin: 0 8px;
+      padding: 14px 14px 14px 26px;
+    }
+  }
+
+  &__title {
+    color: $c-gray02;
+    font: {
+      family: $f-default;
+      size: rem(16);
+      weight: $fw-bold;
+    }
+    margin-bottom: 21px;
+    padding-top: 12px;
+    text-align: center;
+  }
+
+  &__icon {
+    @include size(rem(32));
+    margin-right: 22px;
+  }
+
+  &__name {
+    color: $c-gray02;
+    font: {
+      family: $f-default;
+      size: rem(14);
+      weight: $fw-bold;
+    }
+    line-height: 21px;
+  }
+
+  &__description {
+    color: $c-gray02;
+    font: {
+      family: $f-default;
+      size: rem(12);
+      weight: $fw-regular;
+    }
+    line-height: 18px;
+  }
+}
+
+.brands {
+
+  &__title {
+    margin: {
+      bottom: 25px;
+    }
+    padding-top: 20px;
+    text-align: center;
+
+    @include breakpoint('small-and-up') { 
+      padding-top: 37px;
+      margin-bottom: 17px;
+    }
+  }
+
+  &__list {
+    margin: 0 -16px 0 10px;
+
+    &:not(.slick-initialized) {
+      display: flex;
+    }
+
+    @include breakpoint('small-and-up') { 
+      margin: 0 -8px;
+    }
+
+    .slick-list {
+      padding: 0 8.5% 0 0;
+  
+      @include breakpoint('extra-small-and-up') {
+        padding: 0
+      }
+    }
+
+    .box-banner {
+      margin: 0 8px;
+    }
+  }
+
+  &__image {
+    border-radius: 4px;
+    max-width: 100%;
+    width: 298px;
+
+    @include breakpoint('extra-small-and-up') {
+      width: 308px;
+    }
+  }
+}
+
+.shelf {
+  &__title {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+}
+
+.collection {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: {
+    top: 12px;
+    bottom: 40px;
+  }
+
+  @include breakpoint('small-and-up') {
+    flex-wrap: nowrap;
+    margin: {
+      top: 40px;
+    }
+  }
+
+  &__content {
+    @include breakpoint('small-and-up') {
+      margin-right: 32px;
+      width: 27%;
+    }
+  }
+
+  &__title {
+    margin: {
+      bottom: 16px;
+      top: 0;
+    }
+  }
+
+  &__text {
+    color: $c-black;
+    font: {
+      size: rem(14);
+      weight: $fw-regular;
+    }
+  }
+
+  &__banner {
+    .box-banner {
+      .collection__image {
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &-desktop {
+      display: none;
+
+      @include breakpoint('small-and-up') {
+        display: block;
+        margin-left: 32px;
+        width: 73%;
+      }
+    }
+
+    &-mobile {
+      @include breakpoint('small-and-up') {
+        display: none;
+      }
+    }
+  }
+}

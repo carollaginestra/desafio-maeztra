@@ -1,0 +1,7 @@
+input {
+  height: 40px;
+
+  &::placeholder {
+    color: $c-gray02;
+  }
+}
