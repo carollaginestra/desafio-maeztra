@@ -9,6 +9,8 @@ import autoprefixer from 'gulp-autoprefixer';
 import imagemin from 'gulp-imagemin';
 import clean from 'gulp-clean';
 import notify from 'gulp-notify';
+import concat from 'gulp-concat';
+import order from "gulp-order";
 import pug from 'gulp-pug';
 
 function browser_sync() {
@@ -46,14 +48,24 @@ function css() {
 } 
 
 function js() {
-    return src(['layout/src/js/**/*.js'])
-        .pipe(babel())        
-        .pipe(rename({extname: '.min.js'}))
-        .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(uglify().on('error', console.error))
-        .pipe(sourcemaps.write('.'))
-        .pipe( dest('layout/dist/js'))
-        .pipe( browserSync.stream() );
+  return src(['layout/src/js/**/*.js'])
+      .pipe(order([
+          "layout/src/js/plugins/jquery.js",
+          "layout/src/js/plugins/slick.js",
+          'layout/src/js/footer.js',
+          'layout/src/js/header.js',
+          'layout/src/js/home.js',
+          'layout/src/js/newsletter.js',
+      ]), { base: './' })
+      .pipe(sourcemaps.init())
+      .pipe(babel({
+        presets: ['@babel/preset-env']
+      }))
+      .pipe(concat('all.js'))
+      .pipe(uglify().on('error', console.error))
+      .pipe(sourcemaps.write('.'))
+      .pipe(dest('layout/dist/js'))
+      .pipe( browserSync.stream() );
 }
 
 export function html() {

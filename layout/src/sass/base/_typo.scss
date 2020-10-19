@@ -1,0 +1,23 @@
+h2 {
+  color: $c-gray02;
+  font: {
+    family: $f-default;
+    size: rem(24);
+    weight: $fw-bold;
+  }
+
+  @include breakpoint('small-and-up') {
+    font: {
+      size: rem(32);
+    }
+  }
+}
+
+h3 {
+  color: $c-black;
+  font: {
+    family: $f-default;
+    size: rem(24);
+    weight: $fw-bold;
+  }
+}
