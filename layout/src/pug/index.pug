@@ -79,7 +79,7 @@ html(xmlns="http://www.w3.org/1999/xhtml", xmlns:xlink="http://www.w3.org/1999/x
                 each image in images
                   .box-banner
                     a(href="", title="Primeiro banner")
-                      img.banner__image(src="/images/home/banner-desktop.jpg" alt="Promoções de outono")
+                      img.banner__image(src="./layout/dist/images/home/banner-desktop.jpg" alt="Promoções de outono")
               +bannerDesktop(1, 2, 3, 4, 5)
 
             .banner-mobile.banner-slider
@@ -87,7 +87,7 @@ html(xmlns="http://www.w3.org/1999/xhtml", xmlns:xlink="http://www.w3.org/1999/x
                 each image in images
                   .box-banner
                     a(href="", title="Primeiro banner")
-                      img.banner__image(src="/images/home/banner-mobile.jpg" alt="Promoções de outono")
+                      img.banner__image(src="layout/dist/images/home/banner-mobile.jpg" alt="Promoções de outono")
               +bannerMobile(1, 2, 3, 4, 5)
 
         section
@@ -101,7 +101,7 @@ html(xmlns="http://www.w3.org/1999/xhtml", xmlns:xlink="http://www.w3.org/1999/x
                     .benefits__content
                       .benefits__name=title
                       .benefits__description=description
-                +benefits('/images/home/icon-world.png', 'Produtos importados', 'Produtos importados', 'Produto de Alta Qualidade')(class="benefits__icon")
+                +benefits('./layout/dist/images/home/icon-world.png', 'Produtos importados', 'Produtos importados', 'Produto de Alta Qualidade')(class="benefits__icon")
                 +benefits('/images/home/icon-store.png', 'Estoque no Brazil', 'Estoque no Brazil', 'Produtos mais perto de você!')(class="benefits__icon")
                 +benefits('/images/home/icon-dev.png', 'Trocas Garantidas', 'Trocas Garantidas', 'Trocas em até 48 horas, vejas as regras')(class="benefits__icon")
                 +benefits('/images/home/icon-sale.png', 'Ganhe 5% off', 'Ganhe 5% off', 'Pagando à vista no Cartão')(class="benefits__icon")
