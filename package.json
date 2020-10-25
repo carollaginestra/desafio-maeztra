@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "gulp"
+    "gulp": "npm run gulp"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "gulp-uglify": "^3.0.2"
   },
   "dependencies": {
+    "gh-deploy": "^0.2.3",
     "gulp-babel": "^8.0.0",
     "gulp-browserify": "^0.5.1",
     "jquery": "^3.5.1"
