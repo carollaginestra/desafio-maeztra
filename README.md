@@ -14,7 +14,7 @@ It's a e-commerce home layout and some logic challenges.
 
 Clone the project and enter into the project folder:
 ```sh
-$ git clone https://github.com/carollaginestra/desafio-maeztra.git
+$ git clone https://github.com/carollaginestra/desafio-maeztra.github.io.git
 $ cd desafio-maeztra
 ```
 
