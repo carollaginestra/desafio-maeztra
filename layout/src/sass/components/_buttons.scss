@@ -1,7 +1,14 @@
 .primary-button {
   background: $c-orange;
-  border: none;
+  border: 1px solid $c-orange;
   box-shadow: none;
   color: $c-white;
+  cursor: pointer;
   text-align: center;
+  transition: $d-normal;
+
+  &:hover {
+    background: transparent;
+    color: $c-orange;
+  }
 }

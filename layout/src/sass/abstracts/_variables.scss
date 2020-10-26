@@ -10,6 +10,9 @@ $color: (
   c-gray: #FAFAFA,
   c-gray02: #353535,
   c-gray03: #EFEFEF,
+  c-gray04: #464B54,
+  c-gray05: #C4C4C4,
+  c-gray06: #787D83,
 ) !default;
 
 $c-white: map-get($color, 'c-white');
@@ -18,6 +21,9 @@ $c-orange: map-get($color, 'c-orange');
 $c-gray: map-get($color, 'c-gray');
 $c-gray02: map-get($color, 'c-gray02');
 $c-gray03: map-get($color, 'c-gray03');
+$c-gray04: map-get($color, 'c-gray04');
+$c-gray05: map-get($color, 'c-gray05');
+$c-gray06: map-get($color, 'c-gray06');
 
 // Base colors
 $c-base-bg: $c-gray;
@@ -28,29 +34,22 @@ $qtd-col: 12;
 $grid-gutter: 1rem; 
 $base-gutter: ($grid-gutter / 2);
 
-// Grid breakpoints
-$xs: 580px;
-$sm: 768px;
-$md: 960px;
-$lg: 1280px;
-$xlg: 1919px;
-
 // Value map 
 $breakpoints: (
-    'extra-large-and-up': ( min-width: $xlg),
-    'extra-large-and-down': ( max-width: $xlg),
-    'large-and-up': ( min-width: $lg ),
-    'large-and-down': ( max-width: $lg ),
-    'large-only': (( max-width: $xlg ) and ( min-width: $lg )),
-    'medium-and-up': ( min-width: $md ),
-    'medium-and-down': ( max-width: $md ),
-    'medium-only': (( max-width: $lg ) and ( min-width: $md )),
-    'small-and-up': ( min-width: $sm ),
-    'small-and-down': ( max-width: $sm ),
-    'small-only': (( max-width: $md) and ( min-width: $sm )),
-    'extra-small-and-up': ( min-width: $xs ),
-    'extra-small-and-down': ( max-width: $xs ),
-    'extra-small-only': (( max-width: $sm) and ( min-width: $xs )),
+    'extra-large-and-up': '( min-width: 1920px )',
+    'extra-large-and-down': '( max-width: 1920px )',
+    'large-and-up': '( min-width: 1280px )',
+    'large-and-down': '( max-width: 1280px )',
+    'large-only': '( max-width: 1919px ) and ( min-width: 1280px )',
+    'medium-and-up': '( min-width: 960px )',
+    'medium-and-down': '( max-width: 960px )',
+    'medium-only': '( max-width: 1279px ) and ( min-width: 960px )',
+    'small-and-up': '( min-width: 768px )',
+    'small-and-down': '( max-width: 768px )',
+    'small-only': '( max-width: 959px ) and ( min-width: 768px )',
+    'extra-small-and-up': '( min-width: 361px )',
+    'extra-small-and-down': '( max-width: 361px )',
+    'extra-small-only': '( max-width: 767px ) and ( min-width: 360px )',
 );
 
 // Zindex

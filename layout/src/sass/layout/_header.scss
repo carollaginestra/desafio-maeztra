@@ -7,10 +7,10 @@
     &-content {
       align-items: center;
       display: flex;
-      padding: 16px 0;
+      padding: 28px 0;
 
       @include breakpoint('medium-and-up') { 
-        padding: 24px 0;
+        padding: 21px 0;
       }
 
     }
@@ -40,6 +40,7 @@
     size: rem(10);
     weight: $fw-regular;
   }
+  line-height: 18px;
   padding: 3px 0;
   text-align: center;
 
@@ -61,6 +62,11 @@
     padding: 0;
     list-style: none;
     justify-content: center;
+
+    @include breakpoint('extra-large-and-up') {
+      justify-content: flex-start;
+      margin-left: 145px;
+    }
   }
 
   &__item {
@@ -102,6 +108,10 @@
       display: inline-block;
       margin-right: 8px;
     }
+
+    &:hover {
+      color: $c-gray02;
+    }
   }
 
   &-uppercase {
@@ -111,6 +121,7 @@
 
 .logo {
   max-width: 110px;
+  margin: 0;
 
   @include breakpoint('medium-and-up') { 
     max-width: 147px;
@@ -128,8 +139,9 @@
 .search {
   
   &-mobile {
-      @include size(rem(32));
-      margin-left: auto;
+    @include size(rem(32));
+    cursor: pointer;
+    margin-left: auto;
 
     &::before {
       @include size(rem(32));
@@ -185,6 +197,10 @@
       }
       padding: 11px 39px;
       margin-left: -34px;
+
+      &:hover {
+        background: $c-white;
+      }
     }
   }
 
@@ -197,10 +213,12 @@
 
 .account, .wishlist, .cart {
   align-items: center;
+  cursor: pointer;
   display: flex;
-  margin: 0 8px;
+  transition: $d-normal;
+
   @include breakpoint('large-and-up') { 
-    margin: 0 20px;
+    margin: 0 41px 0 0;
   }
 
   &__title {
@@ -225,8 +243,8 @@
     display: inline-block;
 
     @include breakpoint('medium-and-up') { 
-      @include size(rem(18), rem(18));
-      background-size: 18px;
+      @include size(rem(14), rem(16));
+      background-size: 14px 16px;
     }
   }  
 }
@@ -246,7 +264,7 @@
 }
 
 .wishlist {
-
+  
   @include breakpoint('large-and-down') { 
     display: none;
   }
@@ -256,20 +274,44 @@
       image: url("data:image/svg+xml,%3Csvg width='19' height='16' viewBox='0 0 19 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.367 1.15404C14.3033 -0.581202 11.1148 -0.320559 9.14037 1.68961C7.16591 -0.320559 3.97749 -0.584772 1.91377 1.15404C-0.771215 3.41414 -0.378464 7.09885 1.5353 9.05189L7.79788 15.4323C8.15493 15.7965 8.63337 16 9.14037 16C9.65095 16 10.1258 15.8001 10.4829 15.4359L16.7454 9.05546C18.6556 7.10242 19.0555 3.41771 16.367 1.15404ZM15.5244 7.84865L9.26177 14.2291C9.17608 14.3147 9.10467 14.3147 9.01898 14.2291L2.7564 7.84865C1.45318 6.52044 1.18897 4.00683 3.01704 2.46797C4.40595 1.30043 6.54822 1.47538 7.89071 2.84287L9.14037 4.11752L10.39 2.84287C11.7397 1.46824 13.8819 1.30043 15.2637 2.4644C17.0882 4.00326 16.8169 6.53115 15.5244 7.84865Z' fill='%23353535'/%3E%3C/svg%3E%0A");
     }
   }
+
+  &:hover {
+    &:before {
+      filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    }
+  }
 }
 
 .cart {
-  margin-right: 0;
+  margin: {
+    left: 31px;
+    right: 0;
+  }
+  
+  @include breakpoint('medium-and-up') {
+    margin-left: 0;
+  }
 
   @include breakpoint('large-and-up') { 
     border: 1px solid $c-orange;
     border-radius: 8px;
     padding: 12px 15px;
+
+    &:hover {
+      background: {
+        color: $c-orange;
+      }
+    }
   }
 
   &::before {
     background: {
       image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.7682 27.2112L23.9441 9.84052C23.9059 9.47687 23.5993 9.20074 23.2337 9.20074H19.8052V8.41907C19.8052 5.98248 17.8227 4 15.3861 4C12.9494 4 10.9669 5.98248 10.9669 8.41907V9.20074H7.53842C7.17276 9.20074 6.86624 9.47687 6.82797 9.84052L5.00388 27.2112C4.98282 27.4124 5.04819 27.6133 5.1835 27.7638C5.319 27.9141 5.512 28 5.71433 28H25.0576C25.2601 28 25.4531 27.9141 25.5884 27.7638C25.7241 27.6133 25.7893 27.4124 25.7682 27.2112ZM12.3955 8.41907C12.3955 6.7702 13.7371 5.42859 15.3861 5.42859C17.035 5.42859 18.3766 6.7702 18.3766 8.41907V9.20074H12.3955V8.41907ZM6.50754 26.5714L8.18167 10.6293H10.9669V12.2035C10.9669 12.5979 11.2868 12.9178 11.6812 12.9178C12.0756 12.9178 12.3955 12.5979 12.3955 12.2035V10.6293H18.3766V12.2035C18.3766 12.5979 18.6965 12.9178 19.0909 12.9178C19.4853 12.9178 19.8052 12.5979 19.8052 12.2035V10.6293H22.5904L24.2646 26.5714H6.50754Z' fill='black'/%3E%3C/svg%3E%0A");
+    }
+
+    @include breakpoint('medium-and-up') { 
+      @include size(rem(18));
+      background-size: 18px;
     }
   }
 }

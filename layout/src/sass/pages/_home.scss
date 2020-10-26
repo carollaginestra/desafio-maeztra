@@ -28,7 +28,7 @@
 
       li {
         &:after {
-          @include breakpoint('extra-small-and-up') {
+          @include breakpoint('small-and-up') {
             @include size(rem(16));
           }
         }
@@ -38,7 +38,7 @@
     .slick-prev {
       left: 28px;
 
-      @include breakpoint('extra-small-and-up') {
+      @include breakpoint('small-and-up') {
         left: 9%;
       }
     }
@@ -46,7 +46,7 @@
     .slick-next {
       right: 28px;
 	
-      @include breakpoint('extra-small-and-up') {
+      @include breakpoint('small-and-up') {
         right: 9%;
       }
     }
@@ -90,7 +90,7 @@
     .slick-list {
       padding: 0 8.5% 0 0;
   
-      @include breakpoint('extra-small-and-up') {
+      @include breakpoint('small-and-up') {
         padding: 0
       }
     }
@@ -105,7 +105,15 @@
       flex-basis: 0;
       flex: 1 1 0px;
       margin: 0 8px;
-      padding: 14px 14px 14px 26px;
+      padding: 14px 10px 14px 26px;
+
+      @include breakpoint('large-only') {
+        padding: 14px;
+      }
+
+      @include breakpoint('extra-large-and-up') {
+        padding: 14px 14px 14px 26px;
+      }
     }
   }
 
@@ -148,17 +156,25 @@
 }
 
 .brands {
+  padding-bottom: 20px;
+
+  @include breakpoint('small-and-up') { 
+    padding-bottom: 40px;
+  }
 
   &__title {
     margin: {
       bottom: 25px;
+      top: 0;
     }
     padding-top: 20px;
     text-align: center;
 
     @include breakpoint('small-and-up') { 
       padding-top: 37px;
-      margin-bottom: 17px;
+      margin: {
+        bottom: 17px;
+      }
     }
   }
 
@@ -176,7 +192,7 @@
     .slick-list {
       padding: 0 8.5% 0 0;
   
-      @include breakpoint('extra-small-and-up') {
+      @include breakpoint('small-and-up') {
         padding: 0
       }
     }
@@ -188,19 +204,145 @@
 
   &__image {
     border-radius: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.13);
     max-width: 100%;
     width: 298px;
 
     @include breakpoint('extra-small-and-up') {
       width: 308px;
     }
+
+    @include breakpoint('medium-and-up') {
+      box-shadow: none;
+    }
   }
 }
 
 .shelf {
+  margin: 0 -16px 12px -7px; 
+
+  @include breakpoint('small-and-up') {
+    margin: 0 -7px 12px;
+  }
+
+  @include breakpoint('medium-and-up') {
+    margin: 0 -8px 40px;
+  }
+
+  .slick-list {
+    padding: 0 8.5% 0 0;
+
+    @include breakpoint('small-and-up') {
+      padding: 0
+    }
+  }
+
   &__title {
-    margin-top: 40px;
+    color: $c-gray02;
+    font: {
+      weight: $fw-bold;
+    }
+    margin-bottom: 16px;
     text-align: center;
+
+    @include breakpoint('medium-and-up') {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__list {
+    &:not(.slick-initialized) {
+      display: flex;
+
+      .shelf__item {
+        &:nth-child(n+6) {
+          display: none;
+        }
+      }
+      
+    }
+  }
+
+  &__item {
+    width: 100%;
+    padding: 0 7px;
+
+    @include breakpoint('medium-and-up') {
+      padding: 0 8px;
+      width: 20%;
+    }
+  }
+
+  &__info {
+    padding: 0 27px;
+
+    @include breakpoint('small-and-up') {
+      padding: 0;
+    }
+
+    @include breakpoint('large-and-up') {
+      margin: 0 27px;
+    }
+  }
+
+  &__price {
+    color: $c-gray02;
+    font: {
+      size: rem(20);
+      weight: $fw-bold;
+    }
+    line-height: 30px;
+    margin: {
+      top: 8px;
+      bottom: 2px;
+    }
+    text-decoration: none;
+  }
+
+  &__name {
+    color: $c-black;
+    font: {
+      size: rem(16);
+      weight: $fw-regular;
+    }
+    line-height: 24px;
+    margin: 0;
+  }
+
+  &__image {
+    max-width: 100%;
+  }
+
+  &__colors {
+    display: flex;
+    margin: 8px -4px;
+
+    &-color {
+      @include size(rem(27));
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 4px;
+
+      &:hover {
+        border: 1px solid $c-black;
+      }
+    }
+  }
+
+  &__description {
+    color: $c-black;
+    font: {
+      size: rem(12);
+    }
+    line-height: 18px;
+    margin-top: 8px;
+    opacity: 0.5;
+  }
+
+  &__button {
+    @include size(100%, rem(35));
+    border-radius: 4px;
+    margin-top: 8px;
   }
 
 }
@@ -209,22 +351,26 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  margin: {
+  padding: {
     top: 12px;
     bottom: 40px;
   }
 
   @include breakpoint('small-and-up') {
     flex-wrap: nowrap;
-    margin: {
+    padding: {
       top: 40px;
+      bottom: 80px;
     }
   }
 
   &__content {
     @include breakpoint('small-and-up') {
-      margin-right: 32px;
       width: 27%;
+    }
+
+    @include breakpoint('large-and-up') {
+      margin-right: 32px;
     }
   }
 
@@ -240,6 +386,12 @@
     font: {
       size: rem(14);
       weight: $fw-regular;
+    }
+    line-height: 21px;
+    margin-bottom: 24px;
+
+    @include breakpoint('small-and-up') {
+      margin-bottom: 0;
     }
   }
 
@@ -258,11 +410,13 @@
       @include breakpoint('small-and-up') {
         display: block;
         margin-left: 32px;
-        width: 73%;
+        width: 71.5%;
       }
     }
 
     &-mobile {
+      width: 100%;
+
       @include breakpoint('small-and-up') {
         display: none;
       }

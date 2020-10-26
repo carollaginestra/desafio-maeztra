@@ -8,7 +8,7 @@ It's a e-commerce home layout and some logic challenges.
 
 ## Online version
 
-[click here](https://carollaginestra.github.io/desafio-maeztra)
+[click here](https://carollaginestra.github.io/desafio-maeztra/layout/dist)
 
 ## Installing
 

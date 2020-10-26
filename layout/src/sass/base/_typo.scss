@@ -5,11 +5,13 @@ h2 {
     size: rem(24);
     weight: $fw-bold;
   }
+  line-height: 37px;
 
   @include breakpoint('small-and-up') {
     font: {
       size: rem(32);
     }
+    line-height: 49px;
   }
 }
 
@@ -20,4 +22,5 @@ h3 {
     size: rem(24);
     weight: $fw-bold;
   }
+  line-height: 37px;
 }

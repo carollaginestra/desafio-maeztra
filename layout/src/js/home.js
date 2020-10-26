@@ -15,12 +15,14 @@ if (benefits.length) {
     dots: true,
     slidesToShow: 5,
     speed: 300,
+    infinite: true,
     responsive: [
       {
         breakpoint: 1920,
         settings: {
           dots: true,
           slidesToShow: 4,
+          slidesToScroll: 4,
         }
       },
       {
@@ -58,16 +60,18 @@ if (brands.length) {
     dots: true,
     slidesToShow: 5,
     speed: 300,
+    infinite: true,
     responsive: [
       {
         breakpoint: 1920,
         settings: {
           dots: true,
           slidesToShow: 4,
+          slidesToScroll: 4,
         }
       },
       {
-        breakpoint: 1350,
+        breakpoint: 1280,
         settings: {
           dots: true,
           slidesToShow: 3,
@@ -75,7 +79,7 @@ if (brands.length) {
         }
       },
       {
-        breakpoint: 991,
+        breakpoint: 760,
         settings: {
           dots: true,
           slidesToShow: 2,
@@ -83,7 +87,7 @@ if (brands.length) {
         }
       },
       {
-        breakpoint: 615,
+        breakpoint: 380,
         settings: {
           dots: false,
           slidesToShow: 1,
@@ -92,4 +96,51 @@ if (brands.length) {
       },
     ]
   });
+}
+
+const shelf = $('.shelf__list');
+if (shelf.length) {
+  shelf.slick({
+    arrows: true,
+    dots: false,
+    slidesToShow: 5,
+    speed: 300,
+    infinite: true,
+    responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          dots: true,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        }
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          arrows: false,
+          dots: true,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          dots: true,
+          arrows: false,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
+  })
 }
