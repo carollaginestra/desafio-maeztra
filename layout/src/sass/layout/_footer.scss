@@ -1,7 +1,154 @@
-/*
-This file is used to contain all layout imports.
-Files inside this folder can contain specific element styles and layout. 
-*/
+.footer {
 
-//Import Layout files
-@import 'header';
+  @include breakpoint('medium-and-up') {
+    background: {
+      color: $c-gray;
+    }
+  }
+
+  &__title {
+    align-items: center;
+    color: $c-gray02;
+    display: flex;
+    font: {
+      size: rem(16);
+      weight: $fw-bold;
+    }
+    justify-content: space-between;
+    margin: {
+      bottom: 17px;
+      top: 0;
+    }
+
+    @include breakpoint('medium-and-up') {
+      margin-bottom: 13px;
+    }
+
+    &::after {
+      content: "+";
+      font: {
+        size: rem(16);
+        weight: $fw-bold;
+      }
+
+      @include breakpoint('medium-and-up') {
+        display: none;
+      }
+
+    }
+
+    &--active {
+
+      &::after {
+        content: "-";
+      }
+      
+      & + .footer__list {
+        display: block;
+        @include breakpoint('medium-and-up') {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  &__content {
+    padding: 40px 0;
+
+    @include breakpoint('medium-and-up') {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include breakpoint('extra-large-and-up') {
+      justify-content: space-around;
+      margin: 0 110px;
+    }
+  }
+
+  &__list {
+    flex-flow: wrap column;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    @include breakpoint('medium-and-up') {
+      display: flex;
+      max-height: 230px;
+    }
+  }
+
+  &__link {
+    color: $c-black;
+    display: block;
+    font: {
+      size: rem(12);
+    }
+    line-height: 18px;
+    margin: 6px 0;
+    padding: 6px 0;
+    transition: $d-normal;
+
+    &:hover {
+      color: $c-orange;
+    }
+  }
+
+  &__bottom {
+    background: {
+      color: $c-gray02;
+    }
+    padding: 20px 0;
+
+    &-content {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      @include breakpoint('medium-and-up') {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__social, &__cards {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 17px -12px;
+    width: 100%;
+
+    @include breakpoint('medium-and-up') {
+      justify-content: flex-start;
+      margin: 0 -12px;
+      width: auto;
+    }
+
+    &-link, &-item {
+      display: inline-block;
+      padding: 0 12px;
+    }
+  }
+
+  &__developed {
+    display: flex;
+    margin: 17px -10px 0;
+
+    @include breakpoint('medium-and-up') {
+      margin: 0 -10px;
+    }
+
+    &-item {
+      margin: 0 10px;
+    }
+
+    &-text {
+      color: $c-white;
+      font: {
+        size: rem(10);
+      }
+      margin-bottom: 2px;
+    }
+  }
+}

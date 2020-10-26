@@ -31,8 +31,12 @@ html {
 }
 
 body {
-	background: $c-base-bg;
+	background: $c-white;
 	margin: 0;
+
+	@include breakpoint('medium-and-up') {
+		background: $c-base-bg;
+	}
 }
 
 .bf-wrapper {
@@ -46,13 +50,13 @@ body {
 	margin-left: auto;
 
 	@include breakpoint('medium-and-up') {
-			width: 950px;
+			width: 930px;
 	}
 	@include breakpoint('large-and-up') {
 			width: 1224px;
 	}
 	@include breakpoint('extra-large-and-up') {
-			width: 1600px;
+			width: 1632px;
 	}
 }
 
