@@ -25,7 +25,8 @@ $ npm install
 
 Verify the deployment by navigating to your server address in your preferred browser.
 ```sh
-$ http://localhost:8888/
+$ localhost/desafio-maeztra/layout/dist/index.html
+
 ```
 
 To run the gulp task automator, simply run the code and the task that you want
