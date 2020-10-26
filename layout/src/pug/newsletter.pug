@@ -1,0 +1,19 @@
+.newsletter-modal#subscription.newsletter-modal--active
+  .newsletter-modal__wrapper
+    .newsletter-modal__close
+      | Fechar
+    .newsletter-modal__row
+      .newsletter-modal__banner
+        .box-banner
+          img(src="./images/newsletter/bg-newsletter.jpg")
+
+      .newsletter-modal__content
+        .newsletter-modal__title Bem Vindo à Maeztra
+        .newsletter-modal__text
+            | Receba em Primeira mão 
+            strong desconto e ofertas exclusivas
+        form.dcx-js-newsletterform
+          .newsletter-modal__form
+            .newsletter-modal__field
+              input.newsletter-modal__input(maxlength='100', name='email', type='text', required, placeholder="Digite seu e-mail")
+              button.newsletter-modal__button(type='submit') Enviar
