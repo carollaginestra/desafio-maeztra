@@ -14,7 +14,7 @@ It's a e-commerce home layout and some logic challenges.
 
 Clone the project and enter into the project folder:
 ```sh
-$ git clone https://github.com/carollaginestra/desafio-maeztra.github.io.git
+$ git clone https://github.com/carollaginestra/desafio-maeztra
 $ cd desafio-maeztra
 ```
 
@@ -30,7 +30,7 @@ $ http://localhost:8888/
 
 To run the gulp task automator, simply run the code and the task that you want
 ```sh
-$ npm run gulp taskname
+$ gulp taskname
 ```
 
 ## Built With
