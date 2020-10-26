@@ -50,10 +50,7 @@ function css() {
 function js() {
   return src(['layout/src/js/**/*.js'])
       .pipe(order([
-          "layout/src/js/plugins/jquery.js",
-          "layout/src/js/plugins/slick.js",
           'layout/src/js/footer.js',
-          'layout/src/js/header.js',
           'layout/src/js/home.js',
           'layout/src/js/newsletter.js',
       ]), { base: './' })
